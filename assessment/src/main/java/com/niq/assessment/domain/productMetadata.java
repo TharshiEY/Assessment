@@ -22,4 +22,3 @@ public class ProductMetadata {
     @Column(name = "brand")
     private String brand;
 }
-
