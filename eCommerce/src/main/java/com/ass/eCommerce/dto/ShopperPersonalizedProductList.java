@@ -1,6 +1,7 @@
-package com.niq.ecom.dto;
+package com.ass.eCommerce.dto;
 
 import lombok.Data;
+
 import java.util.List;
 
 @Data

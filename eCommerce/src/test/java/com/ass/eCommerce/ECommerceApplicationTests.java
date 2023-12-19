@@ -1,10 +1,10 @@
-package com.niq.ecom;
+package com.ass.eCommerce;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EcomApplicationTests {
+class ECommerceApplicationTests {
 
 	@Test
 	void contextLoads() {

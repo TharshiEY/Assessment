@@ -1,7 +1,7 @@
-package com.niq.ecom.service;
+package com.ass.eCommerce.service;
 
-import com.niq.ecom.dto.ProductDto;
-import com.niq.ecom.dto.ShopperPersonalizedProductList;
+import com.ass.eCommerce.dto.ProductDto;
+import com.ass.eCommerce.dto.ShopperPersonalizedProductList;
 
 import java.util.List;
 

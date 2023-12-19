@@ -1,4 +1,4 @@
-package com.niq.ecom;
+package com.ass.eCommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class EcomApplication {
+public class ECommerceApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(EcomApplication.class, args);
+		SpringApplication.run(ECommerceApplication.class, args);
 	}
 
 }

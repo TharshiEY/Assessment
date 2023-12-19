@@ -98,30 +98,19 @@ public class ProductServiceImpl implements ProductService{
     }
 
 
-//    @Override
-//    public List<ProductDto> getProductsByShopper(String shopperId, String category, String brand, int limit) {
-//
-//            List<ProductMetadata> products = productMetadataRepository.findByShopperAndFilters(shopperId, category, brand, limit);
-//            // Convert the entities to DTOs
-//            return products.stream()
-//                    .map(this::mapToDto)
-//                    .collect(Collectors.toList());
+
+//    private ProductDto mapToDto(ProductMetadata productEntity) {
+//        ProductDto productDto = new ProductDto();
+//        productDto.setProductId(productEntity.getProductId());
+//        productDto.setCategory(productEntity.getCategory());
+//        productDto.setBrand(productEntity.getBrand());
+//        return productDto;
 //    }
-//
-//
-
-
-    private ProductDto mapToDto(ProductMetadata productEntity) {
-        ProductDto productDto = new ProductDto();
-        productDto.setProductId(productEntity.getProductId());
-        productDto.setCategory(productEntity.getCategory());
-        productDto.setBrand(productEntity.getBrand());
-        return productDto;
-    }
 
 
     @Override
     public List<ProductMetadata> getProductsByShopper(String shopperId, String category, String brand, int limit) {
+        log.info("Assessment Service: ProductServiceImpl.getProductsByShopper() Invoked.");
         if (shopperId == null || shopperId.isEmpty()) {
             return null;
         }
@@ -148,17 +137,15 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<ShopperPersonalizedProductList> getShopperByProduct(String productId, int limit) {
+        log.info("Assessment Service: ProductServiceImpl.getShopperByProduct() Invoked.");
         if (productId == null || productId.isEmpty()) {
             return null;
         }
-        List<ShopperPersonalizedProductList> shoppers = shopperPersonalizedProductListRepository.findByShelf_ProductMetadata_ProductIdLikeIgnoreCase(productId, PageRequest.of(0,limit));
-
-//        List<ShopperPersonalizedProductList> shoppers = shopperPersonalizedProductListRepository.findByShelfProductMetadataProductId(productId, PageRequest.of(0, limit));
-
-        return shoppers;
+        return shopperPersonalizedProductListRepository.findByShelf_ProductMetadata_ProductIdLikeIgnoreCase(productId, PageRequest.of(0,limit));
     }
 
     private List<String> getProductIdsFromShelf(List<ShelfItem> shelf) {
+        log.info("Assessment Service: ProductServiceImpl.getProductIdsFromShelf() Invoked.");
         return shelf.stream()
                 .map(shelfItem -> shelfItem.getProductMetadata().getProductId())
                 .toList();
