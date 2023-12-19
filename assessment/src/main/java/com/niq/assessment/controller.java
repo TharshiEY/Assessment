@@ -68,33 +68,23 @@ public class controller {
     @Autowired
     private ProductService productService;
 
-//    @GetMapping("/byShopper")
-//    public ResponseEntity<List<ProductDto>> getProductsByShopper(
-//            @RequestParam String shopperId,
-//            @RequestParam(required = false) String category,
-//            @RequestParam(required = false) String brand,
-//            @RequestParam(defaultValue = "10") int limit
-//    ) {
-//        List<ProductDto> products = productService.getProductsByShopper(shopperId, category, brand, limit);
-//        return ResponseEntity.ok(products);
-//    }
 
 
     @GetMapping("/get-products")
-    public ResponseEntity<List<ProductMetadata>> getProductsByShopper(
+    public List<ProductMetadata> getProductsByShopper(
             @RequestParam String shopperId,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String brand,
             @RequestParam(defaultValue = "10") int limit) {
         List<ProductMetadata> products = productService.getProductsByShopper(shopperId, category, brand, limit);
-        return ResponseEntity.ok(products);
+        return products;
     }
 
     @GetMapping("/get-shopper")
-    public ResponseEntity<List<ShopperPersonalizedProductList>> getShopperByProduct(
+    public List<ShopperPersonalizedProductList> getShopperByProduct(
             @RequestParam String productId,
             @RequestParam(defaultValue = "10") int limit) {
         List<ShopperPersonalizedProductList> shoppers = productService.getShopperByProduct(productId, limit);
-        return ResponseEntity.ok(shoppers);
+        return shoppers;
     }
 }
